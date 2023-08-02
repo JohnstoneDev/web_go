@@ -1,4 +1,4 @@
-package main
+package serve
 
 import (
 	"fmt"
@@ -13,7 +13,7 @@ import (
 */
 
 
-func main() {
+func Serve() {
 	// register a new handler : takes the path to match & function ot execute (Dynamic Request)
 	http.HandleFunc("/", func (w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, "Welcome to my website!")

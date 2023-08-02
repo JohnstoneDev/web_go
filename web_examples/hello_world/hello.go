@@ -1,4 +1,4 @@
-package main
+package hello
 
 import (
 	"fmt"
@@ -10,7 +10,7 @@ import (
 	a Request which contains all information about this HTTP request (URL ? header fields)
 */
 
-func main() {
+func Hello() {
 	// Reggister a request handler that receives all incoming HTTP Connections
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, "Hello, you've requested: %s\n", r.URL.Path)
