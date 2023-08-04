@@ -1,0 +1,30 @@
+<style>
+	body {
+		font-family: Verdana, Geneva, Tahoma, sans-serif;
+		background-color: wheat;
+		text-align: center;
+	}
+
+	* {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+
+	div {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		align-content: center;
+		justify-content: center;
+		gap: 2em;
+	}
+
+</style>
+
+<div>
+	<h1>{{.PageTitle}}</h1>
+	<h2>{{.Info}}</h2>
+	<a href="/todos"> To Do List</a>
+</div>
+

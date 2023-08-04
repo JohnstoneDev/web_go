@@ -16,11 +16,25 @@ type TodoPageData struct {
 	Todos []Todo
 }
 
-func Templates() {
+type MainData struct {
+	PageTitle, Info string
+}
+
+func main() {
 	// Parse a template
 	tmpl := template.Must(template.ParseFiles("layout.html"))
+	mtpl := template.Must(template.ParseFiles("index.html"))
 
 	r := mux.NewRouter() // create a router
+
+	r.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		data := MainData {
+			PageTitle: "This is the way",
+			Info: "The Mandalorian",
+		}
+
+		mtpl.Execute(w, data)
+	})
 
 	// execute a template in a request handle
 	r.HandleFunc("/todos", func(w http.ResponseWriter, r *http.Request) {
@@ -36,5 +50,5 @@ func Templates() {
 		tmpl.Execute(w, data)
 	})
 
-	http.ListenAndServe(":80", r)
+	http.ListenAndServe(":8080", r)
 }
