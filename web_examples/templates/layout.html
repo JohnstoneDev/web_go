@@ -1,0 +1,16 @@
+<!--
+	To access the data in a template the top most variable is access by {{.}}.
+	The dot inside the curly braces is called the pipeline and the root element of the data.
+ -->
+
+
+<h1>{{.PageTitle}}</h1>
+<ul>
+    {{range .Todos}}
+        {{if .Done}}
+            <li class="done">{{.Title}}</li>
+        {{else}}
+            <li>{{.Title}}</li>
+        {{end}}
+    {{end}}
+</ul>
