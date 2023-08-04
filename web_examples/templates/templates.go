@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/gorilla/mux"
 	"net/http"
 	"html/template" // package provides rich templating language for html templates
 )
@@ -19,8 +20,10 @@ func Templates() {
 	// Parse a template
 	tmpl := template.Must(template.ParseFiles("layout.html"))
 
+	r := mux.NewRouter() // create a router
+
 	// execute a template in a request handle
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+	r.HandleFunc("/todos", func(w http.ResponseWriter, r *http.Request) {
 		// define data (A todo list & page title to be passed into a template)
 		data := TodoPageData{
 			PageTitle: "My TODO list",
@@ -33,9 +36,5 @@ func Templates() {
 		tmpl.Execute(w, data)
 	})
 
-	http.ListenAndServe(":80", nil)
-}
-
-func main() {
-	Templates()
+	http.ListenAndServe(":80", r)
 }
