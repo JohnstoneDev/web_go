@@ -66,7 +66,7 @@ func Chain(f http.HandlerFunc, middlewares ...MiddleWare) http.HandlerFunc {
 }
 
 func Hello(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello there")
+	fmt.Fprintf(w, "Hello there \n")
 }
 
 func main() {
