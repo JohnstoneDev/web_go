@@ -1,0 +1,35 @@
+<html>
+    <head>
+		<style>
+			body {
+				font-family: 'IBM Plex Sans';
+				background-color: peachpuff;
+				text-align: center;
+			}
+
+			form {
+				display: flex;
+				align-items: center;
+				flex-direction: column;
+				justify-content: center;
+				justify-items: center;
+			}
+		</style>
+    <title> Golang Web Application </title>
+    </head>
+    <body>
+        <form action="/login" method="post">
+					<input type="checkbox" name="interest" value="football">Football
+					<input type="checkbox" name="interest" value="basketball">Basketball
+					<input type="checkbox" name="interest" value="tennis">Tennis
+					Username:<input type="text" name="username">
+					Password:<input type="password" name="password">
+					<input type="hidden" name="token" value="{{.}}" id="hidden_token">
+					<input type="submit" value="Login">
+        </form>
+    </body>
+
+		<script>
+				console.log(document.getElementById("hidden_token").defaultValue)
+		</script>
+</html>
