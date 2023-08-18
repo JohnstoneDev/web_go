@@ -44,3 +44,17 @@ Request packages all have three parts: request line, request header, and body. T
 </p>
 
 </p>
+
+### http package operating mechanism
+
+[HTTPS WORKFLOW IMAGE](https://astaxie.gitbooks.io/build-web-application-with-golang/content/en/images/3.3.http.png?raw=true)
+
+<ol>
+	<li> Create a lisrening socket, listen to a port & wait for clients </li>
+	<li>Accept requests from clients.</li>
+	<li>Handle requests, read HTTP header. If the request uses POST method, read data in the message body and pass them to handlers. Finally, socket returns response data to clients. </li>
+</ol>
+
+<p>
+	Go uses <em>ListenAndServe</em> to handle these steps: initialize a server object, call net.Listen("tcp", addr) 	to setup a TCP listener and listen to a specific address and port.
+</p>
